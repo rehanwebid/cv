@@ -1,724 +1,171 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV Rehan · A4 · Network Engineer & Web Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Rehan | Network Engineer & Web Developer</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            min-height: 100vh;
-            background: #dbe4f0;
-            font-family: 'Inter', sans-serif;
-            color: #0f172a;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            overflow-y: auto;
-            line-height: 1.5;
-            position: relative;
-            padding: 20px 16px 40px;
-        }
-
-        /* Wrapper untuk konten A4 + tombol */
-        .cv-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: fit-content;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        /* LEMBAR A4 - tanpa border radius, full width, di tengah */
-        .cv-sheet {
-            width: 210mm;
-            height: 297mm;
-            background: #ffffff;
-            display: grid;
-            grid-template-columns: 34% 66%;
-            overflow: hidden;
-            position: relative;
-            border-radius: 0;
-            border: none;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-            page-break-after: avoid;
-            page-break-inside: avoid;
-            margin: 0 auto;
-        }
-
-        /* ===== SIDEBAR KIRI (biru kehitaman solid) ===== */
-        .sidebar {
-            background: #0b1628;
-            color: #e2ecff;
-            padding: 1.5rem 1.4rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            height: 297mm;
-            overflow: hidden;
-            border-right: 1px solid #1a2d45;
-            position: relative;
-        }
-
-        /* FOOTER SIDEBAR - teks kecil tahun pembuatan */
-        .sidebar-footer {
-            margin-top: auto;
-            padding-top: 0.8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            text-align: center;
-            font-size: 0.55rem;
-            letter-spacing: 0.5px;
-            color: #6b8ec9;
-            font-weight: 500;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .sidebar-footer i {
-            font-size: 0.55rem;
-            opacity: 0.7;
-        }
-
-        .profile-pic {
-            text-align: center;
-            margin-bottom: 0.1rem;
-        }
-
-        .profile-pic img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #2563eb;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .name-sidebar {
-            text-align: center;
-            margin-bottom: 0.1rem;
-        }
-
-        .name-sidebar h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: -0.4px;
-            color: #ffffff;
-            line-height: 1.2;
-        }
-
-        .name-sidebar .role {
-            font-size: 0.68rem;
-            font-weight: 500;
-            background: rgba(59, 130, 246, 0.18);
-            color: #b8d4ff;
-            display: inline-block;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            margin-top: 0.3rem;
-            letter-spacing: 0.2px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .sidebar-section {
-            margin-top: 0;
-        }
-
-        .sidebar-section h3 {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-            font-weight: 700;
-            color: #7ba9f8;
-            margin-bottom: 0.6rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.3rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0.45rem;
-            font-size: 0.7rem;
-            color: #d6e4ff;
-        }
-
-        .contact-item i {
-            width: 16px;
-            font-size: 0.8rem;
-            color: #60a5fa;
-            text-align: center;
-        }
-
-        .contact-item span,
-        .contact-item a {
-            word-break: break-word;
-            font-weight: 450;
-            color: #d6e4ff;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
-        .skill-group-title {
-            font-weight: 700;
-            font-size: 0.7rem;
-            color: #cfe0ff;
-            margin-bottom: 0.3rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            letter-spacing: 0.1px;
-        }
-
-        .skill-group-title i {
-            color: #60a5fa;
-            width: 16px;
-            text-align: center;
-            font-size: 0.75rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.15rem 0.55rem;
-            border-radius: 18px;
-            font-size: 0.58rem;
-            font-weight: 500;
-            color: #e4edff;
-            letter-spacing: 0.1px;
-        }
-
-        .language-item {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.68rem;
-            margin-bottom: 0.3rem;
-            color: #d6e4ff;
-        }
-
-        .language-item .level {
-            color: #7ba9f8;
-            font-weight: 600;
-        }
-
-        /* ===== KONTEN UTAMA (putih, tanpa radius, padat) ===== */
-        .main-content {
-            background: white;
-            padding: 1.5rem 1.6rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            height: 297mm;
-            overflow: hidden;
-        }
-
-        .hero-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #eef2ff;
-            padding-bottom: 0.4rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.1rem;
-        }
-
-        .hero-title h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #0a1628;
-            line-height: 1.2;
-        }
-
-        .hero-title .badge {
-            background: #2563eb;
-            color: white;
-            padding: 0.15rem 0.8rem;
-            border-radius: 18px;
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.2px;
-        }
-
-        .section {
-            margin-bottom: 0;
-        }
-
-        .section h2 {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: -0.1px;
-            color: #0a1628;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .section h2 i {
-            color: #2563eb;
-            font-size: 0.85rem;
-        }
-
-        .exp-item,
-        .edu-item {
-            margin-bottom: 0.5rem;
-            border-left: 3px solid #bfdbfe;
-            padding-left: 0.7rem;
-        }
-
-        .exp-item h4,
-        .edu-item h4 {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #0f1e36;
-        }
-
-        .exp-item .meta,
-        .edu-item .meta {
-            font-size: 0.58rem;
-            font-weight: 600;
-            color: #2563eb;
-            margin: 0.05rem 0 0.15rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2px;
-        }
-
-        .exp-item ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 0.05rem;
-        }
-
-        .exp-item li {
-            font-size: 0.66rem;
-            color: #39445a;
-            line-height: 1.35;
-            position: relative;
-            padding-left: 0.9rem;
-            margin-bottom: 0.1rem;
-        }
-
-        .exp-item li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: #2563eb;
-            font-weight: 700;
-        }
-
-        .project-card {
-            padding: 0.45rem 0.6rem;
-            background: #ffffff;
-            border-radius: 0;
-            border: 1px solid #e0eaff;
-            border-left: 3px solid #2563eb;
-            box-shadow: none;
-            margin-bottom: 0.3rem;
-        }
-
-        .project-card .title {
-            font-weight: 800;
-            color: #0a1628;
-            font-size: 0.72rem;
-            margin-bottom: 0.03rem;
-        }
-
-        .project-card .desc {
-            font-size: 0.63rem;
-            color: #1e293b;
-            line-height: 1.35;
-            font-weight: 450;
-        }
-
-        .project-card .tech {
-            font-size: 0.56rem;
-            color: #1e3a8a;
-            margin-top: 0.25rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.15rem 0.35rem;
-            font-weight: 600;
-        }
-
-        .project-card .tech span {
-            background: #f1f5f9;
-            padding: 0.03rem 0.45rem;
-            border-radius: 16px;
-            font-size: 0.55rem;
-            font-weight: 600;
-            color: #0a1628;
-            border: 1px solid #dbe4f0;
-        }
-
-        .footer-note {
-            margin-top: 0.2rem;
-            font-size: 0.58rem;
-            color: #6b7a99;
-            text-align: right;
-            border-top: 1px dashed #d6e0f0;
-            padding-top: 0.4rem;
-            letter-spacing: 0.15px;
-        }
-
-        /* ===== TOMBOL AKSI DI BAWAH A4 - JARAK 10px, RATA KANAN ===== */
-        .action-buttons {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            /* jarak 10px dari A4 */
-            width: 210mm;
-            /* sama dengan lebar A4 */
-            max-width: 100%;
-            padding-right: 0;
-            z-index: 9999;
-        }
-
-        .action-btn {
-            background: #ffffff;
-            border: 1px solid #cbd8ec;
-            border-radius: 30px;
-            padding: 0.7rem 1.4rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #0a1628;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: 0.3px;
-            box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s;
-            text-decoration: none;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .action-btn i {
-            font-size: 0.9rem;
-            color: #2563eb;
-        }
-
-        .action-btn:hover {
-            background: #f8fbff;
-            border-color: #2563eb;
-            box-shadow: 0 12px 22px -8px rgba(37, 99, 235, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .action-btn.icon-only {
-            padding: 0.7rem;
-            border-radius: 50%;
-            aspect-ratio: 1/1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-        }
-
-        .action-btn.icon-only i {
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        /* Responsif */
-        @media (max-width: 900px) {
-            body {
-                padding: 1rem 0.8rem 30px;
-                align-items: center;
-                overflow-y: auto;
-            }
-            .cv-wrapper {
-                width: 100%;
-            }
-            .cv-sheet {
-                grid-template-columns: 1fr;
-                height: auto;
-                width: 100%;
-                margin: 0 auto;
-                border-radius: 0;
-            }
-            .sidebar {
-                height: auto;
-                padding: 1.2rem;
-            }
-            .main-content {
-                height: auto;
-                padding: 1.2rem;
-            }
-            .sidebar-footer {
-                margin-top: 1rem;
-                padding-top: 0.8rem;
-            }
-            .profile-pic img {
-                width: 80px;
-                height: 80px;
-            }
-            .action-buttons {
-                width: 100%;
-                margin-top: 10px;
-                justify-content: flex-end;
-                flex-wrap: wrap;
-            }
-            .action-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.7rem;
-            }
-            .action-btn.icon-only {
-                width: 38px;
-                height: 38px;
-                padding: 0.5rem;
-            }
-        }
-
-        @media print {
-            .action-buttons {
-                display: none !important;
-            }
-            html,
-            body {
-                background: white;
-                width: 210mm;
-                height: 297mm;
-                display: block;
-                overflow: hidden;
-                padding: 0;
-                margin: 0;
-            }
-            .cv-wrapper {
-                width: auto;
-                margin: 0;
-            }
-            .cv-sheet {
-                box-shadow: none;
-                margin: 0 auto;
-                width: 210mm;
-                height: 297mm;
-                border: none;
-                border-radius: 0;
-                display: grid;
-            }
-            .sidebar {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .sidebar { background-color: #1e1b4b; } /* Warna Indigo Gelap */
+        .skill-tag { background-color: #e0e7ff; color: #3730a3; font-size: 0.75rem; padding: 4px 10px; border-radius: 9999px; font-weight: 600; }
+        .tool-icon { font-size: 1.5rem; color: #6b7280; transition: color 0.3s; }
+        .tool-icon:hover { color: #4f46e5; }
+        .timeline-item { border-left: 2px solid #e5e7eb; padding-left: 1.5rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; border-radius: 50%; background-color: #4f46e5; }
     </style>
 </head>
-<body>
+<body class="text-gray-800 antialiased">
 
-    <!-- WRAPPER: A4 + TOMBOL DI BAWAH -->
-    <div class="cv-wrapper">
+    <!-- Main Container -->
+    <div class="max-w-6xl mx-auto my-8 bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
 
-        <!-- LEMBAR A4 - TANPA BORDER RADIUS, FULL WIDTH, DI TENGAH -->
-        <div class="cv-sheet">
-
-            <!-- SIDEBAR KIRI -->
-            <aside class="sidebar">
-                <div class="profile-pic">
-                    <img src="foto.webp" alt="Rehan">
+        <!-- Sidebar (Kiri) -->
+        <aside class="sidebar text-white md:w-1/3 p-8 flex flex-col">
+            <!-- Foto Profil -->
+            <div class="flex justify-center mb-6">
+                <div class="w-32 h-32 rounded-full border-4 border-indigo-400 overflow-hidden bg-gray-300 flex items-center justify-center">
+                    <!-- Placeholder untuk foto Rehan -->
+                    <i class="fas fa-user text-5xl text-indigo-900"></i>
                 </div>
-                <div class="name-sidebar">
-                    <h2>Rehan</h2>
-                    <div class="role">Network Engineer & Web Developer</div>
+            </div>
+
+            <h1 class="text-3xl font-bold text-center tracking-wider">REHAN</h1>
+            <p class="text-indigo-300 text-center text-sm mt-1 mb-8 uppercase tracking-widest">Network Engineer & Web Dev</p>
+
+            <!-- Kontak -->
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold mb-4 border-b border-indigo-700 pb-2 flex items-center"><i class="fas fa-address-book mr-2"></i> Kontak</h2>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center"><i class="fas fa-envelope w-6 text-indigo-400"></i> rehanwebid@gmail.com</li>
+                    <li class="flex items-center"><i class="fas fa-phone w-6 text-indigo-400"></i> +62 896-8421-9904</li>
+                    <li class="flex items-center"><i class="fas fa-map-marker-alt w-6 text-indigo-400"></i> Indramayu, Indonesia</li>
+                    <li class="flex items-center"><i class="fas fa-globe w-6 text-indigo-400"></i> rehanwebid.github.io</li>
+                    <li class="flex items-center"><i class="fas fa-globe w-6 text-indigo-400"></i> rehan.web.id</li>
+                </ul>
+            </div>
+
+            <!-- Keahlian -->
+            <div>
+                <h2 class="text-lg font-semibold mb-4 border-b border-indigo-700 pb-2 flex items-center"><i class="fas fa-code mr-2"></i> Keahlian</h2>
+                
+                <h3 class="text-sm font-semibold text-indigo-300 mb-2 mt-4">Networking</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="skill-tag">Konfigurasi NAT</span>
+                    <span class="skill-tag">VLAN</span>
+                    <span class="skill-tag">Hotspot</span>
+                    <span class="skill-tag">IP</span>
+                    <span class="skill-tag">DHCP</span>
+                    <span class="skill-tag">Mgmt Bandwidth</span>
                 </div>
 
-                <div class="sidebar-section">
-                    <h3>Kontak</h3>
-                    <div class="contact-item"><i class="fas fa-envelope"></i><span>rehanwebid@gmail.com</span></div>
-                    <div class="contact-item"><i class="fas fa-phone-alt"></i><span>+62 896-8421-9904</span></div>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Indramayu, Indonesia</span></div>
-                    <div class="contact-item"><i class="fab fa-github"></i><span>rehanwebid.github.io</span></div>
-                    <div class="contact-item"><i class="fas fa-globe"></i><span>rehan.web.id</span></div>
+                <h3 class="text-sm font-semibold text-indigo-300 mb-2">Web Development</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">Framework basic</span>
+                    <span class="skill-tag">API</span>
+                    <span class="skill-tag">Deployment</span>
+                    <span class="skill-tag">Domain</span>
+                    <span class="skill-tag">Database</span>
+                    <span class="skill-tag">Web to Apk</span>
+                    <span class="skill-tag">Server</span>
+                    <span class="skill-tag">AI Integrations</span>
+                    <span class="skill-tag">Google Auth</span>
+                    <span class="skill-tag">SEO</span>
                 </div>
+            </div>
+        </aside>
 
-                <div class="sidebar-section">
-                    <h3>Keahlian</h3>
-                    <div class="skill-group-title"><i class="fas fa-network-wired"></i> Network Engineer</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">UTP Cable</span>
-                        <span class="skill-tag">Switch</span>
-                        <span class="skill-tag">Access Point</span>
-                        <span class="skill-tag">Router</span>
-                        <span class="skill-tag">Winbox Tools</span>
-                        <span class="skill-tag">Visio</span>
-                        <span class="skill-tag">MS Office</span>
+        <!-- Main Content (Kanan) -->
+        <main class="md:w-2/3 p-8 md:p-12 bg-white">
+            
+            <!-- Tentang Saya -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3"><i class="fas fa-user-tie"></i></span>
+                    Tentang Saya
+                </h2>
+                <p class="text-gray-600 leading-relaxed text-sm">
+                    Network engineer dan web developer dengan pengalaman di bidang infrastruktur jaringan serta pengembangan website. Terbiasa menangani konfigurasi jaringan, pemeliharaan sistem, dan membangun aplikasi web sederhana hingga menengah. Fokus pada solusi yang stabil, aman, dan sesuai kebutuhan pengguna.
+                </p>
+            </section>
+
+            <!-- Pendidikan -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3"><i class="fas fa-graduation-cap"></i></span>
+                    Pendidikan Akhir
+                </h2>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-800">SMK Negeri 1 Losarang</h3>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full">2024 - 2027 (Ekspetasi Lulus)</span>
                     </div>
-                    <div class="skill-group-title" style="margin-top: 0.5rem;"><i class="fas fa-laptop-code"></i> Web Developer</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Google Apps Script</span>
-                        <span class="skill-tag">API</span>
-                        <span class="skill-tag">Database</span>
-                        <span class="skill-tag">Server</span>
-                        <span class="skill-tag">AI Integration</span>
-                        <span class="skill-tag">Deployment</span>
-                        <span class="skill-tag">Domain</span>
-                        <span class="skill-tag">Google Auth</span>
-                        <span class="skill-tag">Web to APK</span>
-                        <span class="skill-tag">SEO Basic</span>
-                        <span class="skill-tag">Security Basic</span>
-                        <span class="skill-tag">VS Code</span>
-                    </div>
+                    <p class="text-gray-600 font-medium">Teknik Komputer dan Jaringan</p>
+                    <p class="text-sm text-gray-500 mt-2"><i class="fas fa-star text-yellow-500 mr-1"></i> Lulus dengan predikat baik</p>
                 </div>
+            </section>
 
-                <div class="sidebar-section">
-                    <h3>Bahasa</h3>
-                    <div class="language-item"><span>Indonesia</span><span class="level">Sedang</span></div>
-                    <div class="language-item"><span>Jawa</span><span class="level">Mahir</span></div>
-                    <div class="language-item"><span>Inggris</span><span class="level">Dasar</span></div>
-                </div>
+            <!-- Proyek Unggulan -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3"><i class="fas fa-project-diagram"></i></span>
+                    Proyek Unggulan
+                </h2>
 
-                <!-- FOOTER SIDEBAR - teks kecil tahun pembuatan -->
-                <div class="sidebar-footer">
-                    <i class="fas fa-copyright"></i> 2025 · Dibuat oleh Rehan
-                </div>
-            </aside>
-
-            <!-- KONTEN UTAMA -->
-            <main class="main-content">
-                <div class="hero-title">
-                    <h1>Network Engineer &<br>Web Developer</h1>
-                    <span class="badge">Otodidak · Freelance</span>
-                </div>
-
-                <!-- Ringkasan -->
-                <section class="section">
-                    <h2><i class="fas fa-user-astronaut"></i> Ringkasan</h2>
-                    <p style="font-size: 0.72rem; color: #1e293b; line-height: 1.55; font-weight: 450;">
-                        <strong style="color: #0a1628;">Network engineer</strong> dan <strong style="color: #0a1628;">web developer</strong> dengan pengalaman di bidang infrastruktur jaringan serta pengembangan website. Terbiasa menangani konfigurasi jaringan, pemeliharaan sistem, dan membangun aplikasi web sederhana hingga menengah. Fokus pada solusi yang <strong style="color: #0a1628;">stabil</strong>, <strong style="color: #0a1628;">aman</strong>, dan sesuai kebutuhan pengguna.
-                    </p>
-                </section>
-
-                <!-- Pengalaman -->
-                <section class="section">
-                    <h2><i class="fas fa-briefcase"></i> Pengalaman (Freelance)</h2>
-                    <div class="exp-item">
-                        <h4>Web Developer</h4>
-                        <div class="meta">Rumah Makan Seafood · Remote · 2024 – 2025</div>
-                        <ul>
-                            <li>Membangun <strong>landing page responsif</strong> untuk promosi rumah makan seafood</li>
-                            <li>Menampilkan menu andalan, lokasi, jam buka, dan kontak usaha</li>
-                            <li>Menggunakan <strong>HTML, CSS, dan JavaScript</strong> native</li>
-                        </ul>
-                    </div>
-                    <div class="exp-item">
-                        <h4>Web Developer</h4>
-                        <div class="meta">Aplikasi Pendataan Resepsi Hajatan · Remote · 2024 – 2025</div>
-                        <ul>
-                            <li>Mengembangkan aplikasi berbasis web untuk pendataan tamu undangan</li>
-                            <li>Fitur: <strong>input data tamu</strong>, daftar hadir, dan rekap otomatis</li>
-                            <li>Dikemas dalam bentuk <strong>APK</strong> menggunakan framework hybrid</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Pendidikan -->
-                <section class="section">
-                    <h2><i class="fas fa-graduation-cap"></i> Pendidikan</h2>
-                    <div class="edu-item">
-                        <h4>SMK Negeri 1 Losarang</h4>
-                        <div class="meta">2024 – 2027</div>
-                        <p style="font-size: 0.68rem; color: #39445a;">Teknik Komputer dan Jaringan</p>
-                    </div>
-                </section>
-
-                <!-- Proyek Mandiri -->
-                <section class="section">
-                    <h2><i class="fas fa-rocket"></i> Proyek Mandiri</h2>
-                    <div style="display: flex; flex-direction: column; gap: 0.3rem;">
-                        <div class="project-card">
-                            <div class="title">Web Coffee Senja</div>
-                            <div class="desc">Website full stack kafe – pemilihan menu, total otomatis, checkout, konversi ke WhatsApp. Responsif.</div>
-                            <div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                <div class="space-y-6">
+                    <!-- Proyek 1 -->
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-800">Mini ISP</h3>
+                            <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-1 rounded">02 Sep 2026</span>
                         </div>
-                        <div class="project-card">
-                            <div class="title">APK FinLoop</div>
-                            <div class="desc">Aplikasi tracking keuangan pribadi (Web to APK). Grafik bulanan, histori transaksi.</div>
-                            <div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Web to APK</span></div>
-                        </div>
-                        <div class="project-card">
-                            <div class="title">Pesan Admin-User</div>
-                            <div class="desc">Sistem pesan antar admin dan user real-time. Eksperimen database pertama.</div>
-                            <div class="tech"><span>HTML</span><span>CSS</span><span>JS</span><span>Google Apps Script</span><span>API</span><span>Database</span></div>
-                        </div>
-                        <div class="project-card">
-                            <div class="title">Web Group Anonimous</div>
-                            <div class="desc">Platform grup anonim dengan Google Auth (1 akun 1 user), daftar user aktif.</div>
-                            <div class="tech"><span>HTML</span><span>CSS</span><span>JS</span><span>Google Apps Script</span><span>API</span><span>Database</span><span>Google Auth</span></div>
-                        </div>
-                        <div class="project-card">
-                            <div class="title">Web FriendlyCode.AI</div>
-                            <div class="desc">AI Chat berbayar dengan sistem token (3 token gratis). Menggunakan Groq API.</div>
-                            <div class="tech"><span>HTML</span><span>CSS</span><span>JS</span><span>Google Apps Script</span><span>API</span><span>Database</span><span>Google Auth</span><span>Groq AI</span></div>
-                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Sistem Jaringan Terpadu dengan IP Statis dari ISP, Router untuk Hotspot Wi-Fi Staff dengan Halaman Login, Pembagian Kecepatan Berbeda antara User Wi-Fi dan Staff, serta Jaringan Kabel via Switch dengan Segmentasi VLAN untuk distribusi IP DHCP dalam skala besar.
+                        </p>
                     </div>
-                </section>
 
-                <!-- Pelatihan -->
-                <section class="section">
-                    <h2><i class="fas fa-certificate"></i> Pelatihan</h2>
-                    <p style="font-size: 0.65rem; color: #1e293b; line-height: 1.45; font-weight: 450;">
-                        Belajar secara <strong>otodidak</strong> melalui eksplorasi mandiri, eksperimen proyek nyata, dan rasa ingin tahu yang tinggi terhadap teknologi jaringan dan pengembangan web.
-                    </p>
-                </section>
-
-                <div class="footer-note">
-                    <i class="fas fa-qrcode" style="margin-right: 5px;"></i> Portofolio lengkap · rehan.web.id
+                    <!-- Proyek 2 -->
+                    <div class="timeline-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-800">FriendlyCode.Ai</h3>
+                            <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-1 rounded">11 Jul 2026</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Sistem AI Berlangganan Token Integrasi Google Auth dan Database untuk pengelolaan saldo token. User baru dapat 3 token gratis, sisanya melalui pembelian via WhatsApp yang diverifikasi admin melalui APK Panel dan Server/API.
+                        </p>
+                    </div>
                 </div>
-            </main>
-        </div>
+            </section>
 
-        <!-- TOMBOL AKSI DI BAWAH A4 - JARAK 10px, RATA KANAN -->
-        <div class="action-buttons">
-            <!-- Edit: ikon pensil saja tanpa teks -->
-            <button class="action-btn icon-only" title="Edit CV" aria-label="Edit CV" onclick="alert('Fungsi edit CV akan segera hadir')">
-                <i class="fas fa-pencil-alt"></i>
-            </button>
-            <!-- Download PDF dengan teks -->
-            <button class="action-btn" title="Download PDF" onclick="alert('Fitur download PDF akan segera hadir')">
-                <i class="fas fa-file-pdf"></i> Download PDF
-            </button>
-            <!-- Print dengan teks -->
-            <button class="action-btn" title="Print" onclick="window.print()">
-                <i class="fas fa-print"></i> Print
-            </button>
-        </div>
+            <!-- Teknologi & Alat -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3"><i class="fas fa-tools"></i></span>
+                    Teknologi & Alat
+                </h2>
+                <div class="flex flex-wrap gap-6 items-center bg-gray-50 p-6 rounded-xl border border-gray-100 justify-center md:justify-start">
+                    <!-- Ikon-ikon disimulasikan dengan FontAwesome karena keterbatasan gambar -->
+                    <div class="text-center"><i class="fas fa-code tool-icon"></i><p class="text-xs mt-1 text-gray-500">VS Code</p></div>
+                    <div class="text-center"><i class="fab fa-linux tool-icon"></i><p class="text-xs mt-1 text-gray-500">Linux</p></div>
+                    <div class="text-center"><i class="fas fa-laptop-code tool-icon"></i><p class="text-xs mt-1 text-gray-500">VS</p></div>
+                    <div class="text-center"><i class="fab fa-html5 tool-icon" style="color:#e34f26;"></i><p class="text-xs mt-1 text-gray-500">HTML5</p></div>
+                    <div class="text-center"><i class="fab fa-css3-alt tool-icon" style="color:#1572b6;"></i><p class="text-xs mt-1 text-gray-500">CSS3</p></div>
+                    <div class="text-center"><i class="fab fa-js tool-icon" style="color:#f7df1e;"></i><p class="text-xs mt-1 text-gray-500">JS</p></div>
+                    <div class="text-center"><i class="fab fa-github tool-icon"></i><p class="text-xs mt-1 text-gray-500">GitHub</p></div>
+                    <div class="text-center"><i class="fab fa-google tool-icon" style="color:#4285f4;"></i><p class="text-xs mt-1 text-gray-500">Google API</p></div>
+                    <div class="text-center"><i class="fas fa-file-excel tool-icon" style="color:#217346;"></i><p class="text-xs mt-1 text-gray-500">Excel</p></div>
+                </div>
+            </section>
 
+            <footer class="mt-12 pt-6 border-t border-gray-200 text-center text-xs text-gray-400">
+                &copy; 2026 Rehan. Dibuat dengan desain ulang.
+            </footer>
+        </main>
     </div>
 
 </body>
